@@ -3,7 +3,9 @@ import {
   createReport,
   getAllReports,
   getReportsByTeam,
-  uploadReportWithImage
+  uploadReportWithImage,
+  deleteReportsByIds
+
 } from '../controllers/reportController.js';
 
 import multer from 'multer';
@@ -14,8 +16,7 @@ const router = express.Router();
 router.post('/', createReport);
 router.get('/', getAllReports);
 router.get('/:team', getReportsByTeam);
-
-// ✅ رفع مهمة واحدة مع صورة
+router.post("/reports/batchDelete", deleteReportsByIds);
 router.post('/upload', upload.single('image'), uploadReportWithImage);
 
 export default router;
