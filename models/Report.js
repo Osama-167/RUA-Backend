@@ -10,17 +10,18 @@ const reportSchema = new mongoose.Schema({
     enum: ['emergency', 'maintenance'],
     required: true,
   },
-  // مهام الطوارئ
-  taskNumber: String,
+taskNumber: {
+  type: Number,
+  required: true,
+  unique: true
+},
   subscriptionNumber: String,
   description: String,
 
-  // مهام الصيانة
   workType: String,
 
-  // مشترك للطوارئ والصيانة
   note: String,
-  image: String, // path أو base64
+  image: String, 
   date: {
     type: String,
     required: true,
